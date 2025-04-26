@@ -1,4 +1,4 @@
-from laibrary import Return
+from laibrary import Borrow
 
 def menu():
     print('='*28)
@@ -12,17 +12,18 @@ def menu():
         choice_number=int(input('please enter your choice number: '))
         if choice_number == 1:
             print()
-            data=Return()
+            data=Borrow()
             data.add_book()
             data.display_book()
             print()
         elif choice_number == 2:
-            data=Return()
-            data.brook_booK()
+            data=Borrow()
+            data.brook_book()
             data.display_book()
         elif choice_number == 3:
-            data=Return()
-            data.return_book()        
+            data=Borrow()
+            data.return_book() 
+                  
             data.display_book()
         elif choice_number == 4:
             break    
