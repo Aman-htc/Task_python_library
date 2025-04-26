@@ -14,7 +14,7 @@ class Laibaray:
                         'rich dad and poor dad',
                         'Effective python',
                         'Bhagwat Gita',
-                        'Fluent Python'
+                        'Fluent Python',
                         'Python Crash Course'
                         ]
         with open(self.path,'w') as file:
