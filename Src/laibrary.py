@@ -7,32 +7,58 @@ class Laibaray:
     
     def __init__(self):
         self.path=r"Task_python_library/Src/store_book.json"
-        # self.remove_book=None
+        try:
+            
+            with open(self.path,'r') as file:
+        
+                self.data_list= json.load(file)
+        except Exception as e:
+            self.data_list=[]        
+        
         
     def add_book(self):
+        
         self.list_book=["Paramhans Yoganand",
                         'rich dad and poor dad',
                         'Effective python',
                         'Bhagwat Gita',
                         'Fluent Python',
                         'Python Crash Course'
-                        ]
+        
+        ]
+        # while True:
+        #     self.list_book.append(input('enter your book name: '))
+        #     ask_book=input('or add book: (yes/no): ')
+        #     if ask_book =="yes":
+
+        #         # self.data_list.append(self.list_book)
+        #         self.list_book.append(input('enter your book name: '))
+        #     else:
+                
+        #         break
+        
+        self.data_list.append(self.list_book)    
         with open(self.path,'w') as file:
-            json.dump(self.list_book,file,indent=4)
+            json.dump(self.data_list,file,indent=4)
           
     
     def display_book(self):
         print('Avilable This book')
+        
        
         
         with open(self.path,'r') as file:
-            print(file.read())
+            self.load_list=json.load(file)
+            for item in self.load_list:
+                if isinstance(item,list) :
+                    
+                    print(json.dumps(item,indent=4))
             
-class Borrow(Laibaray):        
+class Borrow(Laibaray):
+     
+          
     def brook_book(self):
-        with open(self.path,'r') as file:
-            self.load_book=json.load(file)
-        
+        self.remove={}
         try:
             
             print()
@@ -43,10 +69,15 @@ class Borrow(Laibaray):
                 if len(self.__adar_number)==11:
                     if self.__adar_number.isdigit():
                         book_name=input('please enter your book name: ')
+                        print()
                         self.remove_book =book_name
-                        
-
-                        self.load_book.remove(self.remove_book) 
+                        self.data_list[0].remove(self.remove_book)
+                        self.remove['Borrow book']=self.remove_book 
+                        self.remove['name']=self.name
+                        self.remove['adar number']=self.__adar_number
+                        self.data_list.append(self.remove)
+                        print(f'We are taking the borrow book: {self.remove_book}')
+                        print()
                         break
                     else:
                         print('please enter only digit number!') 
@@ -55,17 +86,17 @@ class Borrow(Laibaray):
                     
                     
             with open(self.path,'w') as file:
-                json.dump(self.load_book,file,indent=4) 
-            return self.remove_book    
+                json.dump(self.data_list,file,indent=4) 
+       
         except Exception as e:
             print('My library is not this book')    
 
   
     
     def return_book(self):
-        with open(self.path,'r') as file:
-            self.load_book=json.load(file)
-        self.hgh=self.brook_book()    
+        self.add={}
+        
+              
         while True:
             
             self.name=input('pelase enter your name: ')
@@ -75,15 +106,23 @@ class Borrow(Laibaray):
                     
                 
                     book_name=input('please enter your book name: ')
+                    print()
                     self.add_book=book_name
-                    # self.remove_book =book_name
                     
-                    if self.add_book ==  self.hgh:
+                    
+                    if self.add_book ==   self.remove_book:
                         
-                        self.load_book.append( self.add_book)
+                        self.data_list[0].append( self.add_book)
+                        self.add['Return borrow book']=self.add_book
+                        self.add['name']=self.name
+                        self.add['adar number']=self.__adar_number
+                        self.data_list.append(self.add)
+
+                        print(f"Borrow book is return : {self.add_book}")
                     else:
-                        print('your not go this book!')    
-                    # for load in self.load_book:
+                        print('This not borrow book return only borrow!')   
+                        print() 
+                    
                         
 
                     break
@@ -92,14 +131,6 @@ class Borrow(Laibaray):
             else:
                 print(' Enter your correct adar number!')         
         with open(self.path,'w') as file:
-            json.dump(self.load_book,file,indent=4)
+            json.dump(self.data_list,file,indent=4)
 
                  
-# data=Laibaray()
-# data.add_book()
-# data.display_book()
-# data.brook_booK()
-# data.display_book()
-# data.return_book()
-# data.display_book()
-

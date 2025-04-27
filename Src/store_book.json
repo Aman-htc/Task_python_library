@@ -1,6 +1,50 @@
 [
-    "Paramhans Yoganand",
-    "rich dad and poor dad",
-    "Effective python",
-    "Fluent PythonPython Crash Course"
+    [
+        "Effective Python",
+        "Fluent Python",
+        "Python Crash Course",
+        "rich dad poor dad",
+        "Bhagwat Gita",
+        "history",
+        "Paramhans Yoganand"
+    ],
+    {
+        "Borrow book": "Bhagwat Gita",
+        "name": "aman",
+        "adar number": "90987654321"
+    },
+    {
+        "Return borrow book": "Bhagwat Gita",
+        "name": "aman",
+        "adar number": "98987654321"
+    },
+    [
+        "python"
+    ],
+    [
+        "asaaa"
+    ],
+    {
+        "Borrow book": "history",
+        "name": "amna",
+        "adar number": "98987654343"
+    },
+    [
+        "aa"
+    ],
+    {
+        "Return borrow book": "history",
+        "name": "aan",
+        "adar number": "98989989876"
+    },
+    {
+        "Borrow book": "Paramhans Yoganand",
+        "name": "suraj",
+        "adar number": "98987654321"
+    },
+    {
+        "Return borrow book": "Paramhans Yoganand",
+        "name": "suraj",
+        "adar number": "98989876543"
+    }
 ]
